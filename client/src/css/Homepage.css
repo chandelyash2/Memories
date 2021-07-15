@@ -15,26 +15,48 @@ margin: 2rem;
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between
+    justify-content: space-between;
+    border-radius: 8px;
+    height: 5rem;
 }
 .right img{
-    margin:1rem ;
-    width: 220px;
+    margin:.5rem;
+    width: 100px;
     opacity: 0.9;
 }
 .middle{
-   
-    margin:1rem ;
-margin-top: 5rem;
+   margin: 1.5rem;
 }
 .left{
-    margin:1rem ;
-    margin-top: 5rem;
+    margin:1.5rem ;
+   
 }
 .home_body{
     display: flex;
     margin-top: 2rem;
     width: 100%;
+}
+.home_middle{
+    
+    margin-top: 2rem;
+   
+}
+.middle_button{
+    margin: 1rem;
+}
+.middle_button button{
+    margin: 1rem;
+    width: 7rem;
+    height: 2rem;
+    background-color: rgb(50, 50, 109);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+}
+.middle_button button:hover{
+    background-color: rgb(94, 94, 145);
+    color: white;
 }
 .body_content{
     background-color: rgb(243, 243, 243);
@@ -42,6 +64,7 @@ margin-top: 5rem;
     display: flex;
     flex-direction: column;
     width: 100%;
+    border-radius: 2px ;
    
 }
 .content_row{
@@ -50,4 +73,33 @@ margin-top: 5rem;
     flex-direction: row;
    
     justify-content: space-between;
+}
+.home_body{
+    display: grid;
+    grid-template-rows: 2;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.main_content{
+  
+ box-shadow: 5px 10px;
+ width: 100%;
+ 
+}
+
+.column_img{
+    margin:.5rem;
+    width: 15rem;
+    opacity: 0.9;
+}
+.column{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.column_right{
+    margin-right: 3rem;
 }
