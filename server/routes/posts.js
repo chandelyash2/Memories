@@ -1,6 +1,25 @@
-const expres = require("express");
-const router = expres.Router();
+const express = require("express");
+const router = express.Router();
 const PostMessage = require("../models/postMessage");
+
+const multer = require('multer')
+
+router.use(express.static(__dirname+"./punlic/"))
+
+const Storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, '../../client/public/uploads/');
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.originalname);
+  },
+})
+
+const upload = multer({
+  storage: Storage,
+  
+});
+
 router.get("/", async (req, res) => {
   try {
     const postMessages = await PostMessage.find();
@@ -10,13 +29,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/createPost", (req, res) =>{
+router.post("/createPost",(req, res) =>{
+  // console.log(req.file)
   const newPost = new PostMessage({
-  title:req.body.title,
-message:req.body.message,
-    creator: req.body.creator,
-    tags: req.body.tags,
-    
+  title:req.body.Title,
+message:req.body.Message,
+    creator: req.body.Creator,
+    tags: req.body.Tags,
+   
   });
   newPost
     .save()
