@@ -2,6 +2,9 @@ import React,{useState,useEffect} from "react";
 import "../css/Homepage.css";
 import { Link } from "react-router-dom";
 import AddPost from './AddPost'
+import { FaUserAlt,FaSignOutAlt} from 'react-icons/fa';
+
+
 function Homepage() {
   const [postedData,setPostedData] = useState([])
 const[addPost,setAddPost] = useState(false)
@@ -35,10 +38,10 @@ console.log(postedData)
             <img src="/images/logo.jpg" alt="" />
           </div>
           <div className='middle'>
-            <Link style={{ fontSize: '1.2rem', fontWeight: '600', textDecoration: 'none' }}>Profile</Link>
+            <Link style={{ fontSize: '1.2rem', fontWeight: '600', textDecoration: 'none' }}><FaUserAlt style={{marginRight:'0.5rem'}}/>Profile</Link>
 
           </div>
-          <div className='left'><Link style={{ fontSize: '1.2rem', fontWeight: '600', textDecoration: 'none' }}>LogOut</Link></div>
+          <div className='left'><Link style={{ fontSize: '1.2rem', fontWeight: '600', textDecoration: 'none' }}><FaSignOutAlt style={{marginRight:'0.5rem'}}/>LogOut</Link></div>
 
         </div>
         <div className='home_middle'>
@@ -52,13 +55,13 @@ console.log(postedData)
             <ul>
             <div className='content_row'>
             {postedData.map((d)=>(
-              <li>
+              <li style={{listStyle:'none'}}>
               <div className='card'>
               <div className='main_content'>
               
                   <>
                 <div className='first_column'>
-                <img className='column_img' src="/images/logo.jpg" alt="" />
+ <img src={`/uloads/${d.file}`} alt='file'/>
                 </div>
                 <div className='column'>
                   <span className='column_left'>  <h4>{d.creator}</h4></span>
@@ -80,7 +83,7 @@ console.log(postedData)
                   </div>
                   <div className='column'>
                  
-                    <span className='column_left'>
+                    <span className='column_left' style={{cursor:'pointer'}}>
                       <p>like:{d.likeCount}</p>
                     </span>
                     <span className='column_right'>
