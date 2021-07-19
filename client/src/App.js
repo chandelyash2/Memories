@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
-import Homepage from './pages/Homepage';
-
+import Homepage from './pages/Homepage'
+import LandingPage from './pages/landing'
 function App() {
   return (
     <div className="App">
@@ -25,6 +25,9 @@ function App() {
       <Route path='/homepage'>
         <Homepage/>
 
+      </Route>
+      <Route path='/'>
+<LandingPage/>
       </Route>
     </Switch>
   </Router>

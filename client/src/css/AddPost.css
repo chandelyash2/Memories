@@ -1,0 +1,62 @@
+.content {
+  display: flex;
+  flex-direction: column;
+
+}
+.modal_content {
+  width: 30%;
+  background-color: white;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  opacity: 0.95;
+  height: auto;
+  box-shadow: 5px 10px;
+}
+
+.modal_content span {
+    margin: 1rem;
+position: absolute;
+right: 1%;
+cursor: pointer;
+
+}
+.content_body{
+    display: flex;
+    margin: 2rem;
+}
+.formGrid{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+margin: 2rem;
+
+    
+}
+.formGrid input{
+    margin: 1rem;
+    height: 2rem;
+    border-radius: 7px;
+}
+    .img_upload{
+justify-content: center;
+
+    }
+    .img_upload input {
+     font-weight: 600;
+     margin: 1rem;
+     color: rgb(84, 126, 204);
+    }
+    .formGrid button{
+        height: 2rem;
+        border-radius: 7px;
+        margin: 1rem;
+background-color: rgb(37, 80, 161);
+color: white;
+font-weight: 600;
+cursor: pointer;
+    }
+    .formGrid button:hover{
+        background-color: rgb(113, 153, 226);
+color: white;
+    }
