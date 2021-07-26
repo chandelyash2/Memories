@@ -60,41 +60,30 @@ flex-direction: row;
 }
 .body_content{
     background-color: rgb(243, 243, 243);
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    border-radius: 2px ;
+   
    
 }
 .content_row{
-    margin:1rem;
-    display: flex;
-    flex-direction: row;
-   
-    justify-content: space-between;
-}
-.home_body{
     display: grid;
-    grid-template-rows: 2;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: rgba(236, 234, 234, 0.8);
+   
 }
+
 .card{
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
+  
+    margin: 2rem;
+    margin-top: 2rem;
+  
 }
 .main_content{
-  
+   margin: 2rem;
+ background-color: #e6d11850;
  box-shadow: 5px 10px;
- width: 100%;
  
 }
 
-.column_img{
-    margin:.5rem;
-    width: 15rem;
-    opacity: 0.9;
-}
 .column{
     display: flex;
     flex-direction: row;

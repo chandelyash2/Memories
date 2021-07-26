@@ -4,44 +4,42 @@ import { FaWindowClose } from 'react-icons/fa';
 
 
 function AddPost({addPost,setAddPost}) {
-    const [form,setForm] = useState({
-        Creator:'',
-        Title:'',
-        Message:'',
-       
-    })
+  const[fileName,setFileName]=useState('')
+  const[message,setMessage]=useState('')
+  const[tags,setTags]=useState('')
     // const [fileName,setFileName] = useState('')
+// const user = localStorage.getItem('userName')
 
-    const formData ={
-        creator:form.Creator,
-        title:form.title,
-        message:form.Message,
-       
-    }
-    const handleChange=(e)=>{
-        setForm({
-            ...form,
-            [e.target.name]:e.target.value
-        })
-    }
-        const handleSubmit =(e)=>{
+
+
+        const handleSubmit =async (e)=>{
             e.preventDefault()
-            console.log(formData)
-            postedData()
+            const formData =new FormData()
+            formData.append("message",message)
+            formData.append("tags",tags)
+            formData.append("postedImage",fileName)
+           console.log(formData)
+            const result=   await fetch(
+                `http://localhost:5000/posts/createPost`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(formData),
+                }
+              ).then((response) => response.json())
+              if(result.status==='ok'){
+                  alert('data submitted')
+                  setAddPost((prevDisplay)=>!prevDisplay)
+              }
+              else{
+                  alert(result.error)
+              }
         }
-        const postedData =async ()=>{
-         await fetch(
-            `http://localhost:5000/posts/createPost`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
-            }
-          ).then((response) => response.json());
+     
          
-        }
+        
     
     return (
         addPost?( 
@@ -54,19 +52,22 @@ function AddPost({addPost,setAddPost}) {
                 }}><FaWindowClose/></span>
             
             <div className='content_body'>
-<form className='formGrid' onSubmit={handleSubmit} encType='multipart/formData'>
-    <input type='text' placeholder='Creator' name='Creator' onChange={handleChange}/>
-    <input type='text' placeholder='Title' name='Title' onChange={handleChange}/>
-    <input type='text' placeholder='Message' name='Message' onChange={handleChange}/>
-    <input  type='text' placeholder='Tags' name='Tags' style={{border:'none',borderBottom:'1px solid black'}} onChange={handleChange}/>
-  {/* <div className='img_upload'>
-  <input type="file" filename='fileImage' onChange={(e)=>{
+<form className='formGrid' onSubmit={handleSubmit} encType="multipart/form-data">
+
+    <input type='text' placeholder='Message'  onChange={(e)=>{
+        setMessage(e.target.value)
+    }}/>
+    <input  type='text' placeholder='Tags'  style={{border:'none',borderBottom:'1px solid black'}} onChange={(e)=>{
+        setTags(e.target.value)
+    }}/>
+
+  <input type="file" filename='postedImage' onChange={(e)=>{
       setFileName(
        e.target.files[0]
       )
   }} />
               
-  </div> */}
+
     <button type='submit'>Submit</button>
 </form>
             </div>

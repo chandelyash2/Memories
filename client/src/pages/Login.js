@@ -33,6 +33,9 @@ function Login() {
     if (result.status === "ok") {
       alert("Success");
       history.push('/homepage')
+      localStorage.setItem('userlogin','isloggedin',)
+      const Name = result.Name
+      localStorage.setItem('userName',Name)
     } else {
       alert(result.error);
     }

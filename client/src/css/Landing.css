@@ -1,0 +1,22 @@
+.home{
+    display: flex;
+    justify-content: center;
+}
+.home_contentt{
+    margin: 15rem;
+    width: 800px;
+    background-color: rgb(241, 234, 248);
+  box-shadow: 5px 10px;
+}
+.welcome_content{
+    color: rgb(55, 43, 226);
+  margin: 1rem;
+  font-size: 3em;
+}
+.create_account{
+    font-size: 2em;
+    color: blueviolet;
+    margin-top: 5rem;
+   
+}
+
